@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>Angular Option Bool</title>
 </head>
 <body>
 
   <div ng-app="app" ng-controller="MainCtrl as vm">
+    <h1>Angular Version - {{ angular.version.full }}</h1>
+    
     <select ng-model="vm.select1"
             ng-options="o.v as o.n for o in [{ n: 'Not included', v: false }, { n: 'Included', v: true }]">
     </select>
