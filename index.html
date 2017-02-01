@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width">
   <title>Angular Option Bool</title>
 </head>
-<body>
+<body ng-app="app">
 
-  <div ng-app="app" ng-controller="MainCtrl as vm">
+  <div ng-controller="MainCtrl as vm" ng-cloak>
     <h1>Angular Version - {{ vm.angularVersion }}</h1>
     
     <select ng-model="vm.select1"
