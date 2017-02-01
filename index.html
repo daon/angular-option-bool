@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+  <div ng-app="app" ng-controller="MainCtrl as vm">
+    <select ng-model="vm.select1"
+            ng-options="o.v as o.n for o in [{ n: 'Not included', v: false }, { n: 'Included', v: true }]">
+    </select>
+    
+    
+    <select ng-model="vm.select2">
+      <option value="false">False</option>
+      <option value="true">True</option>
+    </select>
+    
+    <select ng-model="vm.select3">
+      <option ng-value="false">False</option>
+      <option ng-value="true">True</option>
+    </select>
+    
+    <pre>{{ vm | json }}</pre>
+    <pre>{{ vm.select1Type() }} | {{ vm.select1 }}</pre>
+    <pre>{{ vm.select2Type() }} | {{ vm.select2 }}</pre>
+    <pre>{{ vm.select3Type() }} | {{ vm.select3 }}</pre>
+    
+  </div>
+  
+  
+  <script src="https://code.angularjs.org/1.6.0/angular.js"></script>
+  <script>
+    var app = angular.module('app', []);
+
+      app.controller('MainCtrl', ['$scope', function($scope) {
+        var vm = this;
+        vm.select1 = false;
+        vm.select2 = false;
+        vm.select3 = false;
+        vm.select1Type = () => typeof vm.select1;
+        vm.select2Type = () => typeof vm.select2;
+        vm.select3Type = () => typeof vm.select3;
+      }]);
+  </script>
+
+  
+</body>
+</html>
