@@ -8,7 +8,7 @@
 <body>
 
   <div ng-app="app" ng-controller="MainCtrl as vm">
-    <h1>Angular Version - {{ angular.version.full }}</h1>
+    <h1>Angular Version - {{ vm.angularVersion }}</h1>
     
     <select ng-model="vm.select1"
             ng-options="o.v as o.n for o in [{ n: 'Not included', v: false }, { n: 'Included', v: true }]">
@@ -39,6 +39,7 @@
 
       app.controller('MainCtrl', ['$scope', function($scope) {
         var vm = this;
+        vm.angularVersion = angular.version.full;
         vm.select1 = false;
         vm.select2 = false;
         vm.select3 = false;
